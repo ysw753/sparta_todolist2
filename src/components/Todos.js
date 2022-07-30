@@ -22,6 +22,7 @@ const Done = styled.div`
 
 const Todos = () => {
   const { todos } = useSelector((state) => state);
+
   return (
     <Section>
       <Doing>

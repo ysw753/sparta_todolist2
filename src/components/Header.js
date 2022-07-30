@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import CreateTodo from "./form/CreateTodo";
 
 const HeaderBox = styled.div`
   margin: auto;
@@ -18,19 +19,21 @@ const Backdrop = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: -1;
+  z-index: 10;
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.8);
   margin-top: 10px;
 `;
 const Modal = styled.div`
-  position: absolute;
   background-color: white;
-  top: calc(50vh - 300px);
-  left: calc(50vw - 40vw);
-  width: 80vw;
-  height: 600px;
+  z-index: 100;
+  min-width: 40vw;
+  min-height: 80vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 const Header = () => {
   const [toggle, setToggle] = useState(false);
@@ -38,14 +41,18 @@ const Header = () => {
   const togglechange = () => {
     setToggle((prev) => !prev);
   };
-
+  const clickBackdrop = () => {
+    setToggle((prev) => !prev);
+  };
   return (
     <HeaderBox>
-      <Button onClick={togglechange}>할일 추가</Button>
+      <Button onClick={togglechange}>추가하기</Button>
       {toggle ? (
         <>
-          <Backdrop />
-          <Modal />
+          <Backdrop onClick={clickBackdrop} />
+          <Modal>
+            <CreateTodo backclick={togglechange} />
+          </Modal>
         </>
       ) : null}
     </HeaderBox>
