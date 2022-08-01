@@ -18,6 +18,9 @@ const Doing = styled.div`
 const Done = styled.div`
   margin: auto;
   margin-top: 50px;
+  span {
+    color: green;
+  }
 `;
 
 const Todos = () => {
@@ -26,14 +29,16 @@ const Todos = () => {
   return (
     <Section>
       <Doing>
-        <p>DOING</p>
+        <p>🔥DOING</p>
         {todos.map((todo) =>
           !todo.isDone ? <TodoBox key={todo.id} todo={todo} /> : null
         )}
       </Doing>
 
       <Done>
-        <p>DONE</p>
+        <p>
+          <span>✔</span>DONE
+        </p>
         {todos.map((todo) =>
           todo.isDone ? <TodoBox key={todo.id} todo={todo} /> : null
         )}

@@ -59,6 +59,13 @@ export const todosSlice = createSlice({
         todo.id === getId ? (todo.isDone = false) : todo
       );
     },
+    remove: (state, action) => {
+      const getId = parseInt(action.payload.id);
+
+      const updatedData = state.todos.filter((todo) => todo.id !== getId);
+
+      state.todos = updatedData;
+    },
   },
 });
-export const { load, add, done, doing } = todosSlice.actions;
+export const { load, add, done, doing, remove } = todosSlice.actions;

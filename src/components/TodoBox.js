@@ -4,10 +4,20 @@ import { done, doing } from "../redux/todosSlice";
 import { useNavigate } from "react-router-dom";
 
 const Box = styled.div`
+  position: relative;
   width: 250px;
-  height: 130px;
+  height: 120px;
   margin-bottom: 20px;
   border: 1px solid black;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  button {
+    position: absolute;
+    bottom: 0px;
+  }
 `;
 
 const TodoBox = ({ todo }) => {
