@@ -50,14 +50,16 @@ export const todosSlice = createSlice({
     done: (state, action) => {
       const getId = action.payload.id;
       const updatedData = state.todos.map((todo) =>
-        todo.id === getId ? (todo.isDone = true) : todo
+        todo.id === getId ? ((todo.isDone = true), todo) : todo
       );
+      state.todos = updatedData;
     },
     doing: (state, action) => {
       const getId = action.payload.id;
       const updatedData = state.todos.map((todo) =>
-        todo.id === getId ? (todo.isDone = false) : todo
+        todo.id === getId ? ((todo.isDone = false), todo) : todo
       );
+      state.todos = updatedData;
     },
     remove: (state, action) => {
       const getId = parseInt(action.payload.id);
