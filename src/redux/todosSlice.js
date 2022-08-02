@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { current } from "@reduxjs/toolkit";
-const dummy = [
+const DUMMY = [
   {
     id: 1,
     title: "study",
@@ -34,9 +34,7 @@ const dummy = [
 ];
 export const todosSlice = createSlice({
   name: "todoData",
-  initialState: {
-    todos: dummy,
-  },
+  initialState: DUMMY,
   reducers: {
     load: (state) => {
       return state;

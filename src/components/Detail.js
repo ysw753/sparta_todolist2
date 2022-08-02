@@ -37,7 +37,8 @@ const DetailBox = styled.div`
 
 const Detail = () => {
   const { todoId } = useParams();
-  const todos = useSelector((state) => state.todos);
+  const {todos} = useSelector((state) => state.todos);
+
   const todo = todos.filter((todo) => todo.id === parseInt(todoId));
 
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ const Detail = () => {
     <>
       {todo.map((i) => {
         return (
-          <DetailBox>
+          <DetailBox key={i.id}>
             <h2>{i.title}</h2>
             <button
               className="gobackBtn"
