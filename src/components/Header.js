@@ -10,8 +10,15 @@ const HeaderBox = styled.div`
 `;
 
 const Button = styled.button`
-  height: 2rem;
+  height: 3rem;
   width: 10rem;
+  cursor: pointer;
+  border: 2px solid green;
+  background: none;
+  font-size: 1.5rem;
+  :hover {
+    background: #daf3da;
+  }
 `;
 
 const Backdrop = styled.div`
@@ -46,7 +53,7 @@ const Header = () => {
   };
   return (
     <HeaderBox>
-      <Button onClick={togglechange}>추가하기</Button>
+      <Button onClick={togglechange}>추가</Button>
       {toggle ? (
         <>
           <Backdrop onClick={clickBackdrop} />

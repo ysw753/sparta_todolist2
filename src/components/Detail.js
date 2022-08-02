@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { remove } from "../redux/todosSlice";
 const DetailBox = styled.div`
   position: relative;
-  background: red;
+
   margin: auto;
   width: 40%;
   min-width: 500px;
@@ -14,6 +14,7 @@ const DetailBox = styled.div`
   flex-direction: column;
   margin-top: 50px;
   align-items: center;
+  border: 4px solid green;
   h2 {
     text-align: center;
     width: 80%;
@@ -28,16 +29,33 @@ const DetailBox = styled.div`
   .gobackBtn {
     position: absolute;
     left: 50px;
+    cursor: pointer;
+    border: 2px solid green;
+    background: none;
+    :hover {
+      background: #daf3da;
+    }
+    color: green;
+  }
+  .deleteBtn {
+    width: 100px;
+    height: 50px;
+    border: 2px solid #f50000;
+    background: none;
+    :hover {
+      background: #e95d5d;
+    }
   }
   p {
     width: 80%;
     height: 300px;
+    font-size: 2rem;
   }
 `;
 
 const Detail = () => {
   const { todoId } = useParams();
-  const {todos} = useSelector((state) => state.todos);
+  const { todos } = useSelector((state) => state.todos);
 
   const todo = todos.filter((todo) => todo.id === parseInt(todoId));
 
@@ -68,7 +86,13 @@ const Detail = () => {
             </button>
 
             <p>{i.content}</p>
-            <button onClick={deleteTodo}>삭제</button>
+            <button
+              className="deleteBtn"
+              onClick={deleteTodo}
+              style={{ cursor: "pointer" }}
+            >
+              삭제
+            </button>
           </DetailBox>
         );
       })}

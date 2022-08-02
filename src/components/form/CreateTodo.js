@@ -7,10 +7,17 @@ const Box = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 30px;
+  margin-top: 5rem;
+
   input {
     width: 400px;
     height: 30px;
     margin-bottom: 10px;
+    border: 2px solid #b9edb9;
+    :focus {
+      border-color: green;
+      outline: none;
+    }
   }
 
   textarea {
@@ -18,10 +25,21 @@ const Box = styled.div`
     height: 300px;
     margin-bottom: 10px;
     resize: none;
+    border: 2px solid #b9edb9;
+    :focus {
+      border-color: green;
+      outline: none;
+    }
   }
   button {
     width: 120px;
     height: 40px;
+    cursor: pointer;
+    border: 2px solid green;
+    background: none;
+    :hover {
+      background: #daf3da;
+    }
   }
   div {
     width: 400px;

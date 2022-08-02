@@ -8,15 +8,28 @@ const Box = styled.div`
   width: 250px;
   height: 120px;
   margin-bottom: 20px;
-  border: 1px solid black;
+  border: 1px solid green;
   white-space: normal;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
   button {
     position: absolute;
     bottom: 0px;
+    right: 0px;
+
+    cursor: pointer;
+    border: 2px solid green;
+    background: none;
+    :hover {
+      background: #daf3da;
+    }
+  }
+  h2 {
+    padding-right: 40px;
+    padding-left: 5px;
   }
 `;
 
