@@ -41,6 +41,7 @@ const DetailBox = styled.div`
     width: 100px;
     height: 50px;
     border: 2px solid #f50000;
+    font-size: 1.5rem;
     background: none;
     :hover {
       background: #e95d5d;
@@ -56,9 +57,9 @@ const DetailBox = styled.div`
 const Detail = () => {
   const { todoId } = useParams();
   const { todos } = useSelector((state) => state.todos);
-
+  //console.log("detail-component", todos);
   const todo = todos.filter((todo) => todo.id === parseInt(todoId));
-
+  //console.log("detail-component_todo", todo);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

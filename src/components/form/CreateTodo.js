@@ -40,6 +40,7 @@ const Box = styled.div`
     :hover {
       background: #daf3da;
     }
+    font-size: 1.2rem;
   }
   div {
     width: 400px;
@@ -96,7 +97,7 @@ const CreateTodo = ({ backclick }) => {
       />
       <textarea ref={contentRef} />
       <div>
-        <button onClick={goback}>뒤로가기</button>
+        <button onClick={goback}>뒤로</button>
         <button onClick={submitform}>추가</button>
       </div>
     </Box>

@@ -1,5 +1,7 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { load } from "../redux/todosSlice";
 import TodoBox from "./TodoBox";
 
 const Section = styled.div`
@@ -43,13 +45,12 @@ const Done = styled.div`
 
 const Todos = () => {
   const { todos } = useSelector((state) => state.todos);
-  console.log(todos);
-
+  //console.log("todos-component", todos);
   return (
     <Section>
       <Doing>
         <p>🔥DOING</p>
-        {todos.map((todo) =>
+        {todos?.map((todo) =>
           !todo.isDone ? <TodoBox key={todo.id} todo={todo} /> : null
         )}
       </Doing>
@@ -58,7 +59,7 @@ const Todos = () => {
         <p>
           <span>✔</span>DONE
         </p>
-        {todos.map((todo) =>
+        {todos?.map((todo) =>
           todo.isDone ? <TodoBox key={todo.id} todo={todo} /> : null
         )}
       </Done>

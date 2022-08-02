@@ -1,40 +1,42 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { current } from "@reduxjs/toolkit";
-const DUMMY = [
-  {
-    id: 1,
-    title: "study",
-    content: "오늘도 공부함",
-    isDone: false,
-  },
-  {
-    id: 2,
-    title: "study2",
-    content: "오늘도 공부함2",
-    isDone: false,
-  },
-  {
-    id: 3,
-    title: "study3",
-    content: "오늘도 공부함3",
-    isDone: true,
-  },
-  {
-    id: 4,
-    title: "study4",
-    content: "오늘도 공부함4",
-    isDone: true,
-  },
-  {
-    id: 5,
-    title: "study5",
-    content: "오늘도 공부함5",
-    isDone: true,
-  },
-];
+
+const INITIALSTATE = {
+  todos: [
+    {
+      id: 1,
+      title: "study",
+      content: "오늘도 공부함",
+      isDone: false,
+    },
+    {
+      id: 2,
+      title: "study2",
+      content: "오늘도 공부함2",
+      isDone: false,
+    },
+    {
+      id: 3,
+      title: "study3",
+      content: "오늘도 공부함3",
+      isDone: true,
+    },
+    {
+      id: 4,
+      title: "study4",
+      content: "오늘도 공부함4",
+      isDone: true,
+    },
+    {
+      id: 5,
+      title: "study5",
+      content: "오늘도 공부함5",
+      isDone: true,
+    },
+  ],
+};
 export const todosSlice = createSlice({
-  name: "todoData",
-  initialState: DUMMY,
+  name: "todos",
+  initialState: INITIALSTATE,
   reducers: {
     load: (state) => {
       return state;
@@ -61,7 +63,7 @@ export const todosSlice = createSlice({
     },
     remove: (state, action) => {
       const getId = parseInt(action.payload.id);
-
+      console.log(state);
       const updatedData = state.todos.filter((todo) => todo.id !== getId);
 
       state.todos = updatedData;

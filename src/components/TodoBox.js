@@ -8,7 +8,7 @@ const Box = styled.div`
   width: 250px;
   height: 120px;
   margin-bottom: 20px;
-  border: 1px solid green;
+  border: 2px solid green;
   white-space: normal;
   display: -webkit-box;
   -webkit-line-clamp: 3;
