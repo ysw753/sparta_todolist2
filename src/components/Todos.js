@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { load } from "../redux/todosSlice";
+import { load, settingInitalState } from "../redux/todosSlice";
 import TodoBox from "./TodoBox";
 
 const Section = styled.div`
@@ -44,8 +44,17 @@ const Done = styled.div`
 `;
 
 const Todos = () => {
-  const { todos } = useSelector((state) => state.todos);
-  //console.log("todos-component", todos);
+  const { todos } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const localData = localStorage.getItem("todos");
+    if (localData) {
+      const todoList = JSON.parse(localData);
+      dispatch(settingInitalState({ todoList }));
+    }
+  }, []);
+  console.log("todos-component", todos);
+
   return (
     <Section>
       <Doing>

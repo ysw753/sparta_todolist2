@@ -56,7 +56,7 @@ const DetailBox = styled.div`
 
 const Detail = () => {
   const { todoId } = useParams();
-  const { todos } = useSelector((state) => state.todos);
+  const { todos } = useSelector((state) => state);
   //console.log("detail-component", todos);
   const todo = todos.filter((todo) => todo.id === parseInt(todoId));
   //console.log("detail-component_todo", todo);
